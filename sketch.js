@@ -23,8 +23,8 @@ function setup() {
 
 
 function draw() {
-  if (drawing) {
-    // clear the canvas + need for transparent on black
+  if(mouseIsPressed){
+        // clear the canvas + need for transparent on black
     background(0);
     
     // draw all previously drawn circles
@@ -33,25 +33,26 @@ function draw() {
     // draw current brush strokes
     brush();
   }
-}
+    // resetting brush
+  if (mouseIsPressed!=true) {
+    noFill();
+    transfer();
+  }
+  }
+
 
 
 // when mouse is clicked, the spread stops
 function mousePressed() {
   // stop drawing when you click on the mouse
-  drawing = !drawing;
+ // drawing = !drawing;
 
-  // resetting brush
-  if (!drawing) {
-    noFill();
-    transfer();
-  }
 }
 
 
 // brush when drag mouse
 function mouseDragged() {
-  if (drawing) {
+  if (mouseIsPressed) {
     // current brush (updates new circles where our mouse is)
     circles.push({ x: mouseX, y: mouseY, size: size });
   }
@@ -70,7 +71,7 @@ function brush() {
     circle.size += 0.5;
   }
 }
-s
+
 
 // transfer current circles array to previousCircles array to keep old strokes on canvas while having new active brush
 function transfer() {
