@@ -40,16 +40,6 @@ function draw() {
   }
   }
 
-
-
-// when mouse is clicked, the spread stops
-function mousePressed() {
-  // stop drawing when you click on the mouse
- // drawing = !drawing;
-
-}
-
-
 // brush when drag mouse
 function mouseDragged() {
   if (mouseIsPressed) {
